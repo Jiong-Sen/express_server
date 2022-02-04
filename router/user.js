@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const user = require('../controller/user')
+
 // 用户登陆
 router.post('/users/login', user.login)
 // 用户注册

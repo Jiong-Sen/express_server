@@ -1,11 +1,11 @@
-module.login = (req, res, next) => {
+exports.login = (req, res, next) => {
   try {
     res.send('post /login')
   } catch (error) {
     next(err)
   }
 }
-module.register = (req, res, next) => {
+exports.register = (req, res, next) => {
   try {
     res.send('post /login')
   } catch (error) {
@@ -13,7 +13,7 @@ module.register = (req, res, next) => {
   }
 }
 
-module.getUserInfo = (req, res, next) => {
+exports.getUserInfo = (req, res, next) => {
   try {
     res.send('get user')
   } catch (error) {
@@ -21,7 +21,7 @@ module.getUserInfo = (req, res, next) => {
   }
 }
 
-module.putUserInfo = (req, res, next) => {
+exports.putUserInfo = (req, res, next) => {
   try {
     res.send('put user')
   } catch (error) {

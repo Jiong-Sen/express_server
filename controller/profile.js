@@ -1,4 +1,4 @@
-module.serchUserInfo = (req, res, next) => {
+exports.serchUserInfo = (req, res, next) => {
   try {
     res.send('post /login')
   } catch (error) {
@@ -6,14 +6,14 @@ module.serchUserInfo = (req, res, next) => {
   }
 }
 // 关注
-module.followUser = (req, res, next) => {
+exports.followUser = (req, res, next) => {
   try {
     res.send('post /login')
   } catch (error) {
     next(err)
   }
 }
-module.UnFollowUser = (req, res, next) => {
+exports.UnFollowUser = (req, res, next) => {
   try {
     res.send('post /login')
   } catch (error) {
