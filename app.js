@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const app = express()
 const router = require('./router/index')
-
+app.use(express.static('assets'))
 app.use(morgan('short'))
 app.use(express.json())
 app.use(cors())

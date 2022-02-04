@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input class="inpVal" placeholder="https://www.baidu.com/" />
+      <button class="getsnipate">点击获取网页截图</button>
+      <img class="imgarea" width="400" height="400" alt="屏幕截图" src="" />
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $('.getsnipate').on('click', async () => {
+        const val = $('.inpVal').val()
+
+        await fetch(`/api/snipate?url=${val}`)
+          .then((response) => response.json())
+          .then((data) => {
+            $('.imgarea').attr('src', data.data)
+            console.log(data.data, 'data.data')
+          })
+      })
+    </script>
+  </body>
+</html>
