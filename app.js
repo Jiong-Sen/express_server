@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
+const colors = require('colors')
 const app = express()
 const router = require('./router/index')
 const errHandle = require('./middleware/err-handle')
@@ -20,5 +21,5 @@ app.use(errHandle())
 
 const server = app.listen(process.env.port || 3001, '0.0.0.0', () => {
   const port = server.address().port
-  console.log(`localhost:${port}`)
+  console.log(`localhost:${port}`.rainbow)
 })
