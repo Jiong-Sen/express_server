@@ -1,7 +1,7 @@
 exports.serchUserInfo = (req, res, next) => {
   try {
     res.send('post /login')
-  } catch (error) {
+  } catch (err) {
     next(err)
   }
 }
@@ -9,14 +9,14 @@ exports.serchUserInfo = (req, res, next) => {
 exports.followUser = (req, res, next) => {
   try {
     res.send('post /login')
-  } catch (error) {
+  } catch (err) {
     next(err)
   }
 }
 exports.UnFollowUser = (req, res, next) => {
   try {
     res.send('post /login')
-  } catch (error) {
+  } catch (err) {
     next(err)
   }
 }
