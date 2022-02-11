@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
-const { dburl } = require('../config/config.default')
+const { originDBurl } = require('../config/config.default')
 
-// mongoose.connect('mongodb://localhost:27017/realworld')
+mongoose.connect(originDBurl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 var db = mongoose.connection
 // 链接失败的时候
