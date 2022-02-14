@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 const cheerio = require('cheerio')
-
+const request = require('request');
 exports.screenshot = async (req, res, next) => {
   try {
     const browser = await puppeteer.launch({
@@ -22,12 +22,27 @@ exports.screenshot = async (req, res, next) => {
       fullPage: true, //边滚动边截图
     })
     await browser.close()
-    const $ = cheerio.load(body);
-    console.log($, '$')
     res.send({
       code: 200,
       data: `data:image/png;base64,${baseData}`
     })
+  } catch (err) {
+    next(err)
+  }
+}
+
+
+exports.getDataList = async (req, res, next) => {
+  try {
+    request(req.query.url, function (error, response, body) {
+      const $ = cheerio.load(body);
+      console.log($, '$'.red)
+      res.send({
+        code: 200,
+        data: `data:image/png;base64,${baseData}`
+      })
+    })
+
   } catch (err) {
     next(err)
   }

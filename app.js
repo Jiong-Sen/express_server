@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const path = require('path');
 const router = require('./router/index')
+const colors = require('colors')
 
 const app = express()
 
@@ -39,5 +40,5 @@ app.use((req, res, next) => {
 const server = app.listen(process.env.port || 3001, '0.0.0.0', () => {
   const port = server.address().port
 
-  console.log(`localhost:${port}`)
+  console.log(`localhost:${port}`.rainbow)
 })
