@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="./static/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="content">
+    <div class="left">
+      <div class="row">
+        <span>输入网址:</span>
+        <span>
+          <input class="inpVal" placeholder="https://www.baidu.com/" value='https://www.juejin.cn/' />
+        </span>
+      </div>
+      <div class="row">
+        <span>截图:</span>
+        <span>
+          <button class="getsnipate">点击获取网页截图</button>
+        </span>
+      </div>
+      <div class="row">
+        <span>结果:</span>
+        <span>
+          <img class="imgarea" width="500" alt="屏幕截图" src="" />
+        </span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="hot"></div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $('.getsnipate').on('click', async () => {
+      const val = $('.inpVal').val()
+
+      await fetch(`/api/screenshot?url=${val}`)
+        .then((response) => response.json())
+        .then((data) => {
+          $('.imgarea').attr('src', data.data)
+          console.log(data.data, 'data.data')
+        })
+    })
+  </script>
+</body>
+
+</html>

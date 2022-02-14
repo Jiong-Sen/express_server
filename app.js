@@ -1,8 +1,16 @@
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
-const app = express()
+const path = require('path');
 const router = require('./router/index')
+
+const app = express()
+
+app.engine('.html', require('express-art-template'))
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'html');
+
+app.use(express.static(__dirname))
 app.use(express.static('assets'))
 app.use(morgan('short'))
 app.use(express.json())
@@ -12,7 +20,17 @@ app.use(
     extended: true
   })
 )
+
+app.get('/', (req, res) => {
+
+  res.render('index.html', {
+    list: 222
+  })
+
+})
+
 app.use('/api', router)
+
 
 app.use((req, res, next) => {
   res.status(404).send('404')
