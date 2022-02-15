@@ -13,6 +13,7 @@ app.set('view engine', 'html');
 
 app.use(express.static(__dirname))
 app.use(express.static('assets'))
+
 app.use(morgan('short'))
 app.use(express.json())
 app.use(cors())
