@@ -4,6 +4,6 @@ const screenshot = require('../controller/screenshot')
 
 
 router.get('/', screenshot.screenshot)
-router.get('/getDataList', screenshot.screenshot)
+router.get('/getDataList', screenshot.getDataList)
 
 module.exports = router

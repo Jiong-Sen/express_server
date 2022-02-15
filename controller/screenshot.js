@@ -36,10 +36,11 @@ exports.getDataList = async (req, res, next) => {
   try {
     request(req.query.url, function (error, response, body) {
       const $ = cheerio.load(body);
+
       console.log($, '$'.red)
       res.send({
         code: 200,
-        data: `data:image/png;base64,${baseData}`
+        data: [1, 2, 3, 4, 5]
       })
     })
 
